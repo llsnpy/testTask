@@ -13,7 +13,7 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 public class AdminDao {
     private final AdminRepository adminRepository;
-
+//фыв
     public List<Admin> findAll() {
         return StreamSupport
                 .stream(adminRepository.findAll().spliterator(), false)
