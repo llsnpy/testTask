@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminDto {
+public class PuechasesDto {
     private Long id;
     private String name;
     private String surname;
 
-    public AdminDto(final Admin admin) {
+    public PuechasesDto(final Admin admin) {
         this.id = admin.getId();
         this.name = admin.getName();
         this.surname = admin.getSurname();

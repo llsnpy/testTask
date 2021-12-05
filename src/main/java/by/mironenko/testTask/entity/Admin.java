@@ -1,6 +1,6 @@
 package by.mironenko.testTask.entity;
 
-import by.mironenko.testTask.dto.AdminDto;
+import by.mironenko.testTask.dto.PuechasesDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ public class Admin {
     @Column
     private String surname;
 
-    public Admin(final AdminDto adminDto) {
+    public Admin(final PuechasesDto adminDto) {
         this.id = adminDto.getId();
         this.name = adminDto.getName();
         this.surname = adminDto.getSurname();

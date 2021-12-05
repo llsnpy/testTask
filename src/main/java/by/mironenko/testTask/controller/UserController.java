@@ -1,7 +1,7 @@
 package by.mironenko.testTask.controller;
 
-import by.mironenko.testTask.dto.PuechasesDto;
-import by.mironenko.testTask.service.AdminService;
+import by.mironenko.testTask.dto.UserDto;
+import by.mironenko.testTask.service.UserService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,37 +12,37 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
-public class AdminController {
-    private final AdminService adminService;
+@RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+public class UserController {
+    private final UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<PuechasesDto> getAllAdmins() {
-        return adminService.getAll();
+    public List<UserDto> getAllUsers() {
+        return userService.getAll();
     }
 
-    @RequestMapping(value = "/{admins_id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{users_id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public PuechasesDto getAdminById(@NonNull @PathVariable("admins_id") Long id) {
-        return adminService.getById(id);
+    public UserDto getUserById(@NonNull @PathVariable("users_id") Long id) {
+        return userService.getById(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createAdmin(@RequestBody PuechasesDto adminDto) {
-        return adminService.save(adminDto);
+    public Long createUser(@RequestBody UserDto userDto) {
+        return userService.save(userDto);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void updateAdmin(@RequestBody PuechasesDto adminDto) {
-        adminService.update(adminDto);
+    public void updateUser(@RequestBody UserDto userDto) {
+        userService.update(userDto);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteUserById(@NonNull @PathVariable("id") Long id) {
-        adminService.deleteById(id);
+        userService.deleteById(id);
     }
 }
