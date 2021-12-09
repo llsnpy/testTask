@@ -61,4 +61,25 @@ public class MainController {
         modelAndView.addObject("productDto", createdProduct);
         return modelAndView;
     }
+
+    @RequestMapping(value = "/update/{id}")
+    public ModelAndView updateProduct(@PathVariable(name = "id") String id) {
+        ModelAndView model = new ModelAndView("updatePage");
+        ProductDto updatedDto = productService.getById(Long.parseLong(id));
+        model.addObject("product", updatedDto);
+        productService.deleteById(Long.parseLong(id));
+        return model;
+    }
+
+    @RequestMapping(value = "/update")
+    public ModelAndView update(ModelAndView modelAndView,
+                               @RequestParam("name") String name,
+                               @RequestParam("price") String price,
+                               @RequestParam("category") String category) {
+        modelAndView.setViewName("admin");
+        ProductDto updatedProduct = new ProductDto(name, Double.parseDouble(price), category);
+        productService.save(updatedProduct);
+        modelAndView.addObject("listProduct", productService.getAll());
+        return modelAndView;
+    }
 }

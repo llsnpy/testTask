@@ -18,6 +18,7 @@
             <td th:text="${product.category}"></td>
             <td>
                 <a th:href="@{delete/{id}(id=${product.id})}" class="btn btn-danger">delete</a>
+                <a th:href="@{update/{id}(id=${product.id})}" class="btn btn-danger">update</a>
             </td>
         </tr>
 </table>
@@ -26,7 +27,7 @@
     Name: <input type="text" name="name" /><br>
     Price: <input type="text" name="price" /><br>
     Category <input type="text" name="category" /><br>
-    <button type="submit">Submit</button>
+    <button type="submit">Add product</button>
 </form>
 </body>
 </html>
