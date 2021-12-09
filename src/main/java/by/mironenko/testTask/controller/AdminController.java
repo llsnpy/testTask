@@ -1,6 +1,6 @@
 package by.mironenko.testTask.controller;
 
-import by.mironenko.testTask.dto.PuechasesDto;
+import by.mironenko.testTask.dto.AdminDto;
 import by.mironenko.testTask.service.AdminService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -18,25 +18,25 @@ public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<PuechasesDto> getAllAdmins() {
+    public List<AdminDto> getAllAdmins() {
         return adminService.getAll();
     }
 
     @RequestMapping(value = "/{admins_id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public PuechasesDto getAdminById(@NonNull @PathVariable("admins_id") Long id) {
+    public AdminDto getAdminById(@NonNull @PathVariable("admins_id") Long id) {
         return adminService.getById(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createAdmin(@RequestBody PuechasesDto adminDto) {
+    public Long createAdmin(@RequestBody AdminDto adminDto) {
         return adminService.save(adminDto);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-    public void updateAdmin(@RequestBody PuechasesDto adminDto) {
+    public void updateAdmin(@RequestBody AdminDto adminDto) {
         adminService.update(adminDto);
     }
 

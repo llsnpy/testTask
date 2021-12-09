@@ -18,4 +18,9 @@ public class PurchasesDto {
         this.userId = purchases.getUserId();
         this.productId = purchases.getProductId();
     }
+
+    public PurchasesDto(final Long userId, final Long productId) {
+        this.userId =userId;
+        this.productId = productId;
+    }
 }

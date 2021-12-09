@@ -1,7 +1,7 @@
 package by.mironenko.testTask.service;
 
 import by.mironenko.testTask.dao.AdminDao;
-import by.mironenko.testTask.dto.PuechasesDto;
+import by.mironenko.testTask.dto.AdminDto;
 import by.mironenko.testTask.entity.Admin;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,23 +16,23 @@ import java.util.stream.Collectors;
 public class AdminService {
     private final AdminDao adminDao;
 
-    public List<PuechasesDto> getAll() {
+    public List<AdminDto> getAll() {
         return adminDao.findAll()
                 .stream()
-                .map(PuechasesDto::new)
+                .map(AdminDto::new)
                 .collect(Collectors.toList());
     }
 
-    public PuechasesDto getById(final Long id) {
-        return new PuechasesDto(adminDao.findById(id));
+    public AdminDto getById(final Long id) {
+        return new AdminDto(adminDao.findById(id));
     }
 
     @Transactional
-    public Long save(final PuechasesDto adminDto) {
+    public Long save(final AdminDto adminDto) {
         return adminDao.save(new Admin(adminDto)).getId();
     }
 
-    public void update(final PuechasesDto adminDto) {
+    public void update(final AdminDto adminDto) {
         adminDao.update(new Admin(adminDto));
     }
 

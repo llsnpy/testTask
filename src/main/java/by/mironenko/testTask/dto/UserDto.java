@@ -13,6 +13,7 @@ public class UserDto {
     private String name;
     private String surname;
 
+
     public UserDto(final User user) {
         this.id = user.getId();
         this.name = user.getName();

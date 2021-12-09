@@ -7,25 +7,20 @@
 <body>
 <table border="1" cellpadding="10">
     <tr>
-        <td>ID</td>
         <td>Name</td>
         <td>Price</td>
         <td>Category</td>
         <td>Actions</td>
     </tr>
         <tr th:each="product : ${listProduct}">
-            <td th:text="${product.id}"></td>
             <td th:text="${product.name}"></td>
             <td th:text="${product.price}"></td>
             <td th:text="${product.category}"></td>
             <td>
-                <a th:action="@{/addToBucket}">Add</a>
-                <!--<form action="/addToBucket" method="post" th:object="${product}">
-                    <a th:href="id=${product.id}" class="btn btn-danger">add</a>
-                </form>-->
+                <a th:href="@{/addToBucket/{id}(id=${product.id})}" class="btn btn-danger">add</a>
             </td>
         </tr>
 </table>
-<a th:action="@{/openBucket}">Bucket</a>
+<a th:href="@{/openBucket}">Bucket</a>
 </body>
 </html>
