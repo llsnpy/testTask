@@ -20,6 +20,9 @@
             <td th:text="${product.category}"></td>
             <td>
                 <a th:action="@{/addToBucket}">Add</a>
+                <!--<form action="/addToBucket" method="post" th:object="${product}">
+                    <a th:href="id=${product.id}" class="btn btn-danger">add</a>
+                </form>-->
             </td>
         </tr>
 </table>

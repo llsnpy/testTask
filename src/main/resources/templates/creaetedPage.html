@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Created</title>
+</head>
+<body>
+    <h3>Created</h3>
+
+    <p th:each="product : ${productDto}">
+        <p th:text="${productDto.name}"></p>
+        <p th:text="${productDto.price}"></p>
+        <p th:text="${productDto.category}"></p>
+    </p>
+
+    <a th:href="@{/admin}">Back</a>
+
+</body>
+</html>

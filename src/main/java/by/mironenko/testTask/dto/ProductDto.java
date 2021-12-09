@@ -20,4 +20,10 @@ public class ProductDto {
         this.price = product.getPrice();
         this.category = product.getCategory();
     }
+
+    public ProductDto(final String name, Double price, String category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
 }
